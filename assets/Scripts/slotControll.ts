@@ -148,7 +148,10 @@ export class slotControll extends Component {
     const fn = (item: Node) => {
       const inum = parseInt(item.getComponent(Label).string, 10) || 0;
       if (inum === num) {
-        item.getComponent(Label).color = color;
+        const lb = item.getComponent(Label);
+        lb.color = color;
+        const ani = item.getComponent(Animation);
+        ani.play();
       }
     }
     this.content1.children.forEach(fn);
